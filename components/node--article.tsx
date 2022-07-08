@@ -20,23 +20,6 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
         ) : null}
         <span> - {formatDate(node.created)}</span>
       </div>
-      {node.field_media_image.field_media_image && (
-        <figure>
-          <Image
-            src={absoluteUrl(node.field_media_image.field_media_image.uri.url)}
-            width={768}
-            height={400}
-            layout="responsive"
-            objectFit="cover"
-            alt={node.field_media_image.field_media_image.resourceIdObjMeta.alt}
-          />
-          {node.field_media_image.field_media_image.resourceIdObjMeta.title && (
-            <figcaption className="py-2 text-sm text-center text-gray-600">
-              {node.field_media_image.field_media_image.resourceIdObjMeta.title}
-            </figcaption>
-          )}
-        </figure>
-      )}
       {node.body?.processed && (
         <div
           dangerouslySetInnerHTML={{ __html: node.body?.processed }}
